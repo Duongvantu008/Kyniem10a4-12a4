@@ -1,0 +1,238 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kỷ Niệm 3 Năm THPT - Thanh Xuân Rực Rỡ
+    🎓</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Pangolin&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a3622;
+            background-image: radial-gradient(circle, #2c5435, #1a3622);
+            color: #fdfdfd;
+            font-family: 'Pangolin', cursive;
+            text-align: center;
+            min-height: 100vh;
+            overflow-x: hidden; /* Ngăn chặn cuộn ngang */
+        }
+
+        /* --- Hiệu ứng Cánh Hoa Phượng Rơi --- */
+        .petal {
+            position: fixed;
+            top: -10%;
+            color: #ffb3c6; /* Màu cánh hoa phượng/đào nhẹ */
+            user-select: none;
+            z-index: 1000;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        /* --- Header --- */
+        header {
+            padding: 60px 20px 20px;
+        }
+
+        h1 {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(3em, 10vw, 5em);
+            color: #ffffff;
+            margin: 0;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+        }
+
+        .subtitle {
+            font-size: clamp(1.2em, 4vw, 1.8em);
+            color: #e0e0e0;
+            margin-top: 10px;
+            font-family: 'Caveat', cursive;
+        }
+
+        /* --- Container Chính --- */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        /* --- Bảng Tin Nhắn --- */
+        .message-board {
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            padding: clamp(20px, 5vw, 40px);
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .message-board::before {
+            content: "📌";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2em;
+        }
+
+        p.message {
+            font-size: clamp(1.1em, 3vw, 1.4em);
+            line-height: 1.8;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- GALLERY - HIỂN THỊ 2 ẢNH/HÀNG --- */
+        .gallery {
+            display: flex; /* Kích hoạt Flexbox */
+            flex-wrap: wrap; /* Cho phép tự động xuống hàng */
+            justify-content: center; /* Căn giữa các ảnh */
+            gap: 20px; /* Khoảng cách giữa các ảnh */
+            padding: 20px;
+        }
+
+        .polaroid {
+            background: #fff;
+            padding: 10px 10px 20px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #333;
+            width: 45%; /* Chiều rộng chiếm khoảng 45% (2 ảnh/hàng) */
+            max-width: 400px; /* Giới hạn chiều rộng tối đa */
+            cursor: pointer;
+            box-sizing: border-box; /* Tính cả padding vào chiều rộng */
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: 150px; /* Chiều cao ảnh (tùy chỉnh cho vừa mắt) */
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+
+        .polaroid p {
+            margin: 10px 0 0;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6em;
+            font-weight: bold;
+        }
+
+        /* Hiệu ứng xoay nhẹ cho các ảnh chẵn lẻ */
+        .polaroid:nth-child(odd) { transform: rotate(-3deg); }
+        .polaroid:nth-child(even) { transform: rotate(3deg); }
+
+        .polaroid:hover {
+            transform: scale(1.1) rotate(0deg);
+            z-index: 10;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Tối ưu hóa cho màn hình lớn hơn */
+        @media (min-width: 768px) {
+            .polaroid {
+                width: 30%; /* Trở lại 3 ảnh/hàng trên màn hình lớn */
+            }
+        }
+
+        /* --- Footer --- */
+        footer {
+            margin-top: 80px;
+            padding: 30px;
+            font-size: 1.2em;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            background: rgba(0,0,0,0.2);
+        }
+
+        .highlight {
+            color: #ffeb3b;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="leaf-container"></div>
+
+    <header>
+        <h1>Kỷ Niệm Lớp 12 <span style="color: #ff7675;">🌸</span></h1>
+        <p class="subtitle">"Thanh xuân là chuyến tàu đẹp nhất của mỗi đời người..."</p>
+    </header>
+
+    <div class="container">
+        <div class="message-board">
+            <p class="message">
+                Gửi tập thể lớp mình, <br>
+                Ba năm trung học không dài, nhưng đủ để chúng ta viết nên những câu chuyện rực rỡ nhất. Lớp 12 là những buổi chiều nắng gắt ôn thi, là những tiếng cười đùa vụng dại, và cả những giọt nước mắt chia tay. 
+                <br><br>
+                <span class="highlight">Dù mai này khôn lớn, đừng quên chúng ta đã từng có một thời 18 tuổi tuyệt vời như thế!</span>
+            </p>
+        </div>
+
+        <h2 style="font-family: 'Caveat', cursive; font-size: 3em; color: #fff; margin-bottom: 30px;">Cuốn Album Thời Gian</h2>
+        
+        <div class="gallery">
+            <div class="polaroid">
+                <img src="https://i.ibb.co/wZ54N9JS/received-1482312023511487.jpg" alt="Kỷ niệm 1">
+                <p>Ngày đầu gặp gỡ</p>
+                <p>-20/10/2023-</p>
+            </div>
+            <div class="polaroid">
+                <img src="https://i.ibb.co/SwMgG37d/IMG-20251122-113421.jpg" alt="Kỷ niệm 2">
+                <p>Năm thứ 2 cùng chung 1 tập thể</p>
+            </div>
+            <div class="polaroid">
+                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=500" alt="Kỷ niệm 3">
+                <p>Lễ tốt nghiệp 🎓</p>
+            </div>
+            <div class="polaroid">
+                <img src="https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?w=500" alt="Kỷ niệm 4">
+                <p>Mãi là bạn nhé!</p>
+            </div>
+        </div>
+    </div>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLScBS8CKYVnsfm_F4LVm58aonpvF97DX7A_sUCXpGFQKmkuxRw/viewform?usp=dialog" style="text-decoration: none; background: #ff7675; color: white; padding: 12px 20px; border-radius: 10px; display: inline-block; margin-top: 20px;">
+    Gửi ảnh kỷ niệm cho lớp tại đây 📸
+</a>
+
+    <footer>
+        <p>Lưu giữ bởi tập thể lớp 12A4❤️ Khóa 2023 - 2026</p>
+    </footer>
+
+    <script>
+        // Tạo hiệu ứng rơi nhẹ nhàng (JavaScript)
+        function createPetal() {
+            const container = document.getElementById('leaf-container');
+            const petal = document.createElement('div');
+            petal.innerHTML = '🌸';
+            petal.className = 'petal';
+            
+            // Các thuộc tính ngẫu nhiên cho từng cánh hoa
+            const startPos = Math.random() * window.innerWidth;
+            const duration = Math.random() * 3 + 4; // Rơi trong 4-7 giây
+            const size = Math.random() * 15 + 10; // Kích thước 10-25px
+            
+            petal.style.left = startPos + 'px';
+            petal.style.fontSize = size + 'px';
+            petal.style.animationDuration = duration + 's';
+            petal.style.opacity = Math.random(); // Độ mờ ngẫu nhiên
+
+            container.appendChild(petal);
+
+            // Xóa cánh hoa sau khi rơi xong
+            setTimeout(() => {
+                petal.remove();
+            }, duration * 1000);
+        }
+
+        // Tạo cánh hoa mới mỗi 400ms
+        setInterval(createPetal, 400);
+    </script>
+</body>
+</html>
