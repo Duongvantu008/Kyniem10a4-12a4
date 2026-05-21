@@ -97,31 +97,25 @@
             gap: 20px; /* Khoảng cách giữa các ảnh */
             padding: 20px;
         } 
-        .polaroid
+        .polaroid {
     background: #fff;
     padding: 10px 10px 20px 10px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     color: #333;
-    width: calc(25% - 20px); 
-    min-width: 200px;
+    width: 45%; /* Quay về 2 ảnh/hàng bao đẹp */
+    max-width: 400px;
     cursor: pointer;
     box-sizing: border-box;
 }
 
 .polaroid img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 4/3;
+    height: 150px; /* Trả lại chiều cao cố định ban đầu */
     object-fit: cover;
     border: 1px solid #eee;
 }
-
-@media (max-width: 768px) 
-        {
-    .polaroid 
-        width: calc(50% - 20px) !important; 
-
+        
         .polaroid p {
             margin: 10px 0 0;
             font-family: 'Caveat', cursive;
