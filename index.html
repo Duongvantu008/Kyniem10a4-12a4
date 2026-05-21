@@ -96,28 +96,31 @@
             justify-content: center; /* Căn giữa các ảnh */
             gap: 20px; /* Khoảng cách giữa các ảnh */
             padding: 20px;
-        }
+        } 
+        .polaroid
+    background: #fff;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: #333;
+    width: calc(25% - 20px); 
+    min-width: 200px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
 
-        .polaroid {
-            background: #fff;
-            padding: 10px 10px 20px 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            color: #333;
-            width: 22%; /* Chiều rộng chiếm khoảng 45% (2 ảnh/hàng) */
-            cursor: pointer;
-            box-sizing: border-box; /* Tính cả padding vào chiều rộng */
-        }
-        /* Đoạn này giúp tối ưu riêng cho màn hình điện thoại */
+.polaroid img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border: 1px solid #eee;
+}
+
 @media (max-width: 768px) {
     .polaroid {
-        width: 45% !important; /* Trên điện thoại tự đổi thành 2 ảnh một dòng */
-    }
-        .polaroid img {
-            width: 100%;
-            height: 150px; /* Chiều cao ảnh (tùy chỉnh cho vừa mắt) */
-            object-fit: cover;
-            border: 1px solid #eee;
+        width: calc(50% - 20px) !important; 
+        
         }
 
         .polaroid p {
